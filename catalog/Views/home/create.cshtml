@@ -1,0 +1,92 @@
+﻿
+@model catalog.Models.goods_info
+
+<html dir="rtl">
+<head>
+    <title>اضافه کردن محصول جدید</title>
+</head>
+
+
+<body>
+   
+
+
+    <h2>اضافه کردن محصول جدید</h2>
+    <br />
+    <h5> @ViewBag.Message = مهندس مشکی دقت کن</h5>
+    <br />
+
+
+    <form action="/home/create" method="post">
+        <table>
+
+
+            <tr>
+                <td> کد محصول </td>
+                <td><input type="text" name="code" placeholder="کد محصول را وارد کنید"  required</td>
+            </tr>
+
+            <tr>
+                <td> نام محصول </td>
+                <td><input type="text" name="title" placeholder="نام محصول را وارد کنید"  required </td>
+            </tr>
+            <tr>
+                <td> توضیحات </td>
+                <td><input type="text" name="description" placeholder="توضیحات محصول" required</td>
+            </tr>
+            <tr>
+                <td> گروه محصول </td>
+                <td>
+                    <select data-placeholder="گروه محصول" name="category" required>
+                        <option value=""></option>
+                        <option value="شیر پاستوریزه ساده ">شیر پاستوریزه ساده</option>
+                        <option value="شیر استریل 1/5لیتری ">شیر استریل 1/5لیتری</option>
+                        <option value="شیر200ساده ">شیر200ساده</option>
+                        <option value="شیر استریل طعم دار ">شیر استریل طعم دار</option>
+                        <option value="انواع خامه ">انواع خامه</option>
+                        <option value="کره و روغن ">کره و روغن</option>
+                        <option value="ماست موسیر ">ماست موسیر</option>
+                        <option value="ماست همزده ">ماست همزده</option>
+                        <option value="ماست معمولی  ">ماست معمولی</option>
+                        <option value="پنیر یو اف  ">پنیر یو اف</option>
+                        <option value="انواع پنیر  ">انواع پنیر</option>
+                        <option value="دوغ نایلونی  ">دوغ نایلونی</option>
+                        <option value="دوغ 1/5 لیتری  ">دوغ 1/5 لیتری</option>
+                        <option value="سایر انواع دوغ  ">سایر انواع دوغ</option>
+                        <option value="ابمیوه200">ابمیوه200</option>
+                        <option value="آبمیوه 1لیتری  ">آبمیوه 1لیتری</option>
+                        <option value="محصولات پودری  ">محصولات پودری</option>
+                        <option value="کشک و سایر محصولات لبنی  ">کشک و سایر محصولات لبنی</option>
+                        <option value="محصولات غیر لبنی  ">محصولات غیر لبنی</option>
+
+
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td> موجودی </td>
+                <td>
+                    <select data-placeholder="گروه محصول" name="state" required>
+                        <option value=""></option>
+                        <option value="موجود">موجود</option>
+                        <option value="عدم">عدم</option>
+
+
+                    </select>
+                </td>
+            <tr>
+                <td> ادرس تصویر </td>
+                <td><input type="text" name="image_url" placeholder="ادرس تصویر" </td>
+            </tr>
+            <tr>
+
+                <td><input type="submit" value="ارسال" /> </td>
+            </tr>
+
+
+
+        </table>
+    </form>
+</body>
+</html>
+

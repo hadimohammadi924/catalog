@@ -1,0 +1,36 @@
+﻿@model catalog.Models.goods_info
+<title>حذف محصول @Html.DisplayTextFor(s => s.id)</title>
+<div dir="rtl">
+    <center>
+        <h3> @Html.DisplayTextFor(s => s.title)</h3>
+        <br />
+        <h4>  <font color="red"  @ViewBag.Massage ></font>  </h4>
+
+        <hr />
+        <span><img height=25% width=25% src="@Html.DisplayTextFor(s=>s.image_url) " /></span><br />
+        <span><b>کد محصول</b></span><br />
+        <span>@Html.DisplayTextFor(s => s.code) </span><br />
+
+        <span><b>گروه محصول</b></span><br />
+        <span>@Html.DisplayTextFor(s => s.category) </span><br />
+
+        <span><b>موجودی</b></span><br />
+        <span>@Html.DisplayTextFor(s => s.state) </span><br />
+
+        <span><b>توضیحات</b></span><br />
+        <span>@Html.DisplayTextFor(s => s.description) </span><br />
+
+        <form action="/home/delete" method="post"  >
+         @Html.HiddenFor(s=>s.id)
+            <input type="submit" value="حذف نهایی" />
+        </form>
+
+
+
+        <p align="left">
+
+
+            @Html.ActionLink("بازگشت به صفحه اصلی", "Index")|@Html.ActionLink("اصلاحیه", "edit", new { id = @Html.DisplayTextFor(s => s.id) })|@Html.ActionLink("حذف", "delete", new { id = @Html.DisplayTextFor(s => s.id) })
+        </p>
+    </center>
+</div>

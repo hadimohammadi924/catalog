@@ -1,0 +1,76 @@
+﻿
+@model IEnumerable<catalog.Models.goods_info>
+
+<html dir="rtl">
+<head>
+       <title>لیست کلیه محصولات</title>
+</head>
+<body><span>
+    ادمین
+    <b> @Session["name"] @Session["family"]</b>
+    انلاین می باشد. |<a href="/home/logout">خروج</a>
+
+
+</span>
+    <center>
+    <h2>نمایش تمامی محصولات</h2>
+</center>
+    <br />
+    @Html.ActionLink("افزودن محصول جدید","create")
+    <br />
+    <div align="left"><form action="/home/search" method="post">  
+        <input type="text" name="txt_search" placeholder="عنوان جستجو" />
+        <input type="submit" value="جستجو" />
+        </form>
+                          </div>
+    <table border="1" width="100%">
+        <thead>
+            <tr>
+                <th>
+                    ردیف
+                </th>
+                <th>
+                    کدمحصول
+                </th>
+                <th width="50%">
+                    تصویر
+                </th>
+                <th>
+                    نام محصول
+                </th>
+                <th>
+                    گروه محصول
+                </th>
+                <th>
+                    موجودی
+                </th>
+                <th>
+                    ایتم ها
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+              
+            <tr>
+                <td>@Html.DisplayFor(Model => item.id) </td>
+                <td>@Html.DisplayFor(Model => item.code) </td>
+                <td><img src="@Html.DisplayFor(Model =>item.image_url)" width="30%" height="30%" /> </td>
+                <td>@Html.DisplayFor(Model => item.title) </td>
+                <td>@Html.DisplayFor(Model => item.category) </td>
+                <td>@Html.DisplayFor(Model => item.state) </td>
+                <td> @Html.ActionLink("جزئیات", "Details", new { id = item.id }) | @Html.ActionLink("ویرایش", "Edit", new { id = item.id }) | @Html.ActionLink("حذف", "Delete", new { id = item.id })  </td>
+                    
+            </tr>
+            }
+
+        </tbody>
+    </table>
+    <br /><br />
+          <center>
+              <a href="/home/api">api</a>
+          </center>
+</body>
+</html>
+

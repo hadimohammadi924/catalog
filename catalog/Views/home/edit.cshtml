@@ -1,0 +1,78 @@
+﻿@model catalog.Models.goods_info
+
+
+<h2>ویرایش محصول</h2>
+<div dir="rtl">
+
+    @using (Html.BeginForm("edit","Home",FormMethod.Post))
+    {
+        <span>عنوان:</span><br>
+        <span>@Html.TextBoxFor(s => s.title)</span><br>
+        <br>
+        <br>
+
+        <span>گروه محصول:</span>
+        <span>@Html.DisplayFor(s => s.category)</span><br>
+
+        <select data-placeholder="دسته بندی" name="category">
+
+            <option value="شیر پاستوریزه ساده ">شیر پاستوریزه ساده</option>
+            <option value="شیر استریل 1/5لیتری ">شیر استریل 1/5لیتری</option>
+            <option value="شیر200ساده ">شیر200ساده</option>
+            <option value="شیر استریل طعم دار ">شیر استریل طعم دار</option>
+            <option value="انواع خامه ">انواع خامه</option>
+            <option value="کره و روغن ">کره و روغن</option>
+            <option value="ماست موسیر ">ماست موسیر</option>
+            <option value="ماست همزده ">ماست همزده</option>
+            <option value="ماست معمولی  ">ماست معمولی</option>
+            <option value="پنیر یو اف  ">پنیر یو اف</option>
+            <option value="انواع پنیر  ">انواع پنیر</option>
+            <option value="دوغ نایلونی  ">دوغ نایلونی</option>
+            <option value="دوغ 1/5 لیتری  ">دوغ 1/5 لیتری</option>
+            <option value="سایر انواع دوغ  ">سایر انواع دوغ</option>
+            <option value="ابمیوه200">ابمیوه200</option>
+            <option value="آبمیوه 1لیتری  ">آبمیوه 1لیتری</option>
+            <option value="محصولات پودری  ">محصولات پودری</option>
+            <option value="کشک و سایر محصولات لبنی  ">کشک و سایر محصولات لبنی</option>
+            <option value="محصولات غیر لبنی  ">محصولات غیر لبنی</option>
+        </select>
+
+        <br>
+        <br>
+
+        <span>آدرس عکس:</span><br>
+        <span>@Html.TextBoxFor(s => s.image_url)</span><br>
+
+        <br>
+        <br>
+        <span> توضیحات:</span><br>
+        <span>@Html.TextBoxFor(s => s.description)</span><br>
+
+        <br>
+        <br>
+        <span> موجودی:</span>
+        @Html.DisplayFor(s=>s.state)
+        <select data-placeholder="موجودی" name="state">
+
+            <option value="موجود ">موجود</option>
+            <option value="عدم ">عدم</option>
+        </select>
+
+        <br>
+        <br>
+        <br>
+        <form action="/home/edit" method="post">
+
+
+
+            @Html.HiddenFor(s=>s.id)
+            <input type="submit" value="ویرایش" />
+        </form>
+    }
+
+
+
+
+
+</div>
+
